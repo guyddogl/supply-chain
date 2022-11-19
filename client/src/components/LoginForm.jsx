@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/img/logox64.png';
 import AppContext from '../context/AppContext';
 import Axios from '../services/axios';
-import { showToast } from '../services/toastr';
+import showToast from '../services/toastr';
 
 export default function Login() {
   const INITIAL_STATE = { username: '', password: '' };
