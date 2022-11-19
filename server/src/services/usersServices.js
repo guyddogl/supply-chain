@@ -1,10 +1,14 @@
 const usersModels = require('../models/usersModels');
 
-const getAllUsers = async () => {
-  const users = await usersModels.getAllUsers();
-  return { status: 200, users };
+const getUserByUsername = async (username) => {
+  const result = await usersModels.getUserByUsername(username);
+  if (!result) {
+    return { status: 404, message: "Credenciais inválidas. Tente novamente." }
+  }
+  const { password, ...user } = result;
+  return { status: 200, user };
 };
 
 module.exports = {
-  getAllUsers,
+  getUserByUsername,
 };

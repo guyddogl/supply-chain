@@ -1,11 +1,11 @@
 const connection = require('../database/connection');
 
-const getAllUsers = async () => {
-  const query = 'SELECT * FROM usuarios';
-  const [users] = await connection.execute(query);
-  return users;
+const getUserByUsername = async (username) => {
+  const query = 'SELECT * FROM usuarios WHERE username = ?';
+  const [[user]] = await connection.execute(query, [username]);
+  return user;
 };
 
 module.exports = {
-  getAllUsers,
+  getUserByUsername,
 };
