@@ -11,6 +11,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "react-router-dom": "^6.4.2",
+    "axios": "^1.1.2",
     "apexcharts": "^3.36.0",
     "toastr": "^2.1.4"
   },
