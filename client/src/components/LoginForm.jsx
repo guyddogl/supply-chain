@@ -2,12 +2,11 @@ import React, {useState, useEffect, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/img/logox64.png';
 import AppContext from '../context/AppContext';
+import Axios from '../services/axios';
+import { showToast } from '../services/toastr';
 
 export default function Login() {
-  const INITIAL_STATE = {
-    username: '',
-    password: '',
-  };
+  const INITIAL_STATE = {username: '', password: ''};
 
   const [inputsLoginForm, setInputsLoginForm] = useState(INITIAL_STATE);
 
@@ -15,7 +14,7 @@ export default function Login() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { setIsUserLoggedIn } = useContext(AppContext);
+  const { setIsUserLoggedIn, setCurrentUser } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -32,12 +31,23 @@ export default function Login() {
     setIsLoginButtonDisabled(validateRequiredFormInputs());
   }, [inputsLoginForm]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setIsUserLoggedIn(true);
-    setIsLoading(false);
-    navigate('/');
+    await Axios.get(`/usuarios/${inputsLoginForm.username}`, { body: { password: inputsLoginForm.password}})
+    .then((response) => {
+      if (response.status === 200) {
+        setCurrentUser(response.data);
+        setIsUserLoggedIn(true);
+        showToast('success', 'Login realizado com sucesso');
+        setIsLoading(false);
+        navigate('/');
+      }
+    })
+    .catch((err) => {
+      showToast('error', err.response.data);
+      setIsLoading(false);
+    });
   }
 
   return (
