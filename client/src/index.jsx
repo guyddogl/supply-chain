@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import AppProvider from './context/AppProvider';
 import App from './App';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter basename="/">
@@ -13,4 +12,3 @@ root.render(
     </AppProvider>
   </BrowserRouter>,
 );
-
