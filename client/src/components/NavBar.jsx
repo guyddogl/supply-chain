@@ -16,11 +16,11 @@ export default function NavBar() {
     navigate('/login');
   };
 
-  const checkNavLinkActive = (nav, path) => (nav === path ? 'active' : '');
+  const checkNavLinkActive = (nav, path) => (nav === path ? 'nav-link-active' : '');
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg bg-light border">
+      <div className="container">
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="Logo" width="42" height="42" className="d-inline-block align-text-top" />
         </Link>
@@ -29,13 +29,13 @@ export default function NavBar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className={`nav-link ${checkNavLinkActive('/', location.pathname)}`} to="/">Home</a>
+            <li className="nav-item mx-1">
+              <Link className={`nav-link ${checkNavLinkActive('/', location.pathname)}`} to="/">Home</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item mx-1">
               <Link className={`nav-link ${checkNavLinkActive('/fabricantes', location.pathname)}`} to="/fabricantes">Fabricantes</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item mx-1">
               <Link className={`nav-link ${checkNavLinkActive('/mercadorias', location.pathname)}`} to="/mercadorias">Mercadorias</Link>
             </li>
           </ul>
