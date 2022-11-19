@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 
 export default function ProtectedRoutes({ component: Component }) {
