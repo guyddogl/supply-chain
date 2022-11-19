@@ -35,3 +35,7 @@ main {
   border-radius: 5px;
   color: white;
 }
+
+.list-hover:hover {
+  background-color: #F8F9FA;
+}
