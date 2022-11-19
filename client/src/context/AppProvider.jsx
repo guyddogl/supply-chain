@@ -5,6 +5,8 @@ import AppContext from './AppContext';
 export default function AppProvider({ children }) {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
+  const [update, setUpdate] = useState(false);
+
   const [currentUser, setCurrentUser] = useState(null);
 
   const contextValue = useMemo(() => ({
@@ -12,6 +14,8 @@ export default function AppProvider({ children }) {
     setIsUserLoggedIn,
     currentUser,
     setCurrentUser,
+    update,
+    setUpdate,
   }));
 
   return (
