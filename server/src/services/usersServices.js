@@ -1,7 +1,7 @@
 const usersModels = require('../models/usersModels');
 
-const getUserByUsername = async (username) => {
-  const result = await usersModels.getUserByUsername(username);
+const getUserByUsername = async (name) => {
+  const result = await usersModels.getUserByUsername(name);
   if (!result) {
     return { status: 404, message: "Credenciais inválidas. Tente novamente." }
   }
