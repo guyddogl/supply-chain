@@ -10,7 +10,7 @@ const toastTopRight = {
   onclick: null,
   showDuration: '300',
   hideDuration: '1000',
-  timeOut: '5000',
+  timeOut: '3000',
   extendedTimeOut: '1000',
   showEasing: 'swing',
   hideEasing: 'linear',
@@ -18,8 +18,9 @@ const toastTopRight = {
   hideMethod: 'slideUp',
 };
 
-export const showToast = (type, message) => {
+export default function showToast(type, message) {
   toastr.options = toastTopRight;
   if (type === 'success') return toastr.success(message);
   if (type === 'error') return toastr.error(message);
-};
+  return false;
+}
