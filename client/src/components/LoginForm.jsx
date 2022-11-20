@@ -67,7 +67,7 @@ export default function Login() {
       />
       <div className="input-group mb-3">
         <span className="input-group-text text-secondary">
-          <i className="fa-solid fa-envelope" />
+          <i className="fa-solid fa-user" />
         </span>
         <input
           type="username"
