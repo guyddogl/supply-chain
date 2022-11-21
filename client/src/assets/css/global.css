@@ -39,3 +39,13 @@ main {
 .list-hover:hover {
   background-color: #F8F9FA;
 }
+
+.table-entrada {
+  background-color: #376384;
+  color: white;
+}
+
+.table-saida {
+  background-color: #949FB1;
+  color: white;
+}
