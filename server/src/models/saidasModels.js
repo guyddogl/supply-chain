@@ -1,7 +1,7 @@
 const connection = require('../database/connection');
 
 const getAllSaidas = async (_req, _res) => {
-  const query = `SELECT saidas.id, mercadorias.nome AS mercadoria, saidas.quantidade, saidas.local, saidas.data_hora
+  const query = `SELECT saidas.id, mercadorias.id as mercadoria_id, mercadorias.nome AS mercadoria, saidas.quantidade, saidas.local, saidas.data_hora
   FROM saidas, mercadorias 
   WHERE saidas.mercadoria = mercadorias.id
   ORDER BY data_hora DESC`;
