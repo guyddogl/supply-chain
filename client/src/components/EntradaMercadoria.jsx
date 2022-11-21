@@ -109,6 +109,7 @@ export default function EntradaMercadoria() {
                   <input
                     type="number"
                     name="quantidade"
+                    min="1"
                     value={inputsForm.quantidade}
                     placeholder="Quantidade"
                     className="form-control"
@@ -140,7 +141,6 @@ export default function EntradaMercadoria() {
                     type="datetime-local"
                     name="data"
                     value={inputsForm.data}
-                    placeholder="Local"
                     className="form-control"
                     onChange={handleFormInputs}
                     disabled={isLoading}
