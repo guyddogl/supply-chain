@@ -70,7 +70,6 @@ export default function AdicionaFabricante() {
           <form onSubmit={addNewFabricante}>
             <div className="row justify-content-center my-2">
               <div className="col-lg-12">
-
                 <label htmlFor="local" className="form-label" style={{ width: '100%' }}>
                   <div className="input-group">
                     <span className="input-group-text text-secondary">
