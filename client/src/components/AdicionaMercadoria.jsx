@@ -101,6 +101,7 @@ export default function AdicionaMercadoria() {
                     placeholder="Nome"
                     className="form-control"
                     onChange={handleFormInputs}
+                    disabled={isLoading}
                     required
                   />
                 </label>
@@ -114,6 +115,7 @@ export default function AdicionaMercadoria() {
                     placeholder="Tipo"
                     className="form-control"
                     onChange={handleFormInputs}
+                    disabled={isLoading}
                     required
                   />
                 </label>
@@ -146,6 +148,7 @@ export default function AdicionaMercadoria() {
                     onChange={handleFormInputs}
                     style={{ resize: 'none' }}
                     rows="7"
+                    disabled={isLoading}
                     required
                   />
                 </label>

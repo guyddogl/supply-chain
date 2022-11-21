@@ -82,6 +82,7 @@ export default function AdicionaFabricante() {
                       placeholder="Nome do Fabricante"
                       className="form-control"
                       onChange={handleFormInputs}
+                      disabled={isLoading}
                       required
                     />
                   </div>
