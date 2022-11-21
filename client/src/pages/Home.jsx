@@ -150,7 +150,7 @@ export default function Home() {
         </div>
         <div className="row justify-content-center mt-4">
           <div className="col-12 col-lg-5 px-4 py-2">
-            <PieChart />
+            {inputsForm.mercadoria !== 'default' && <PieChart entradasESaidas={entradasESaidas} />}
           </div>
           <div className="col-12 col-lg-7 px-4 py-2">
             {inputsForm.mercadoria !== 'default' && <ListaDeEntradasESaidas entradasESaidas={entradasESaidas} isLoading={isLoading} />}
