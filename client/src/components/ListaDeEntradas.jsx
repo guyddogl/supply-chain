@@ -38,7 +38,7 @@ export default function ListaDeEntradas() {
           </div>
         )}
       </caption>
-      <thead>
+      <thead className="table-success">
         <tr>
           <th>
             Data
@@ -60,7 +60,7 @@ export default function ListaDeEntradas() {
       <tbody className="table-group-divider">
         {entradas.length >= 1 && entradas.map((entrada, index) => (
           index < 5 && (
-          <tr key={entrada.mercadoria}>
+          <tr key={entrada.id}>
             <td>
               {formatDateTime(entrada.data_hora)}
             </td>
