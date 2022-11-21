@@ -28,7 +28,6 @@ export default function ListaDeSaidas() {
     getAllSaidas();
   }, [update]);
 
-  console.log(saidas);
   return (
     <table className="table table-sm table-striped caption-top">
       <caption>
@@ -62,7 +61,7 @@ export default function ListaDeSaidas() {
       <tbody className="table-group-divider">
         {saidas.length >= 1 && saidas.map((saida, index) => (
           index < 5 && (
-          <tr key={saida.id}>
+          <tr key={saida.data_hora}>
             <td>
               {formatDateTime(saida.data_hora)}
             </td>

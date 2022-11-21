@@ -60,7 +60,7 @@ export default function ListaDeEntradas() {
       <tbody className="table-group-divider">
         {entradas.length >= 1 && entradas.map((entrada, index) => (
           index < 5 && (
-          <tr key={entrada.id}>
+          <tr key={entrada.data_hora}>
             <td>
               {formatDateTime(entrada.data_hora)}
             </td>
