@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import NavBar from '../components/NavBar';
 import ListaDeEntradasESaidas from '../components/ListaDeEntradasESaidas';
 import Axios from '../services/axios';
 import showToast from '../services/toastr';
 import { getInitialDate, getFinalDate } from '../utils/dateTime';
+import TablePDF from '../components/PDF/TablePDF';
 
 export default function Mercadorias() {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +56,6 @@ export default function Mercadorias() {
   }, []);
 
   useEffect(() => {
-    console.log(inputsForm.categoria);
     const filtro = entradas.concat(saidas)
       .sort((a, b) => new Date(b.data_hora) - new Date(a.data_hora))
       .filter((e) => (inputsForm.categoria !== 'default' ? e.tipo === inputsForm.categoria : e))
@@ -62,19 +64,18 @@ export default function Mercadorias() {
     setEntradasESaidas(filtro);
   }, [entradas, saidas, inputsForm]);
 
-  console.log(entradasESaidas);
-
   return (
     <>
       <NavBar />
       <section className="container">
-        <div className="row justify-content-center mt-5 mb-2">
-          <h4 className="text-center">Relatório de Entradas e Saídas</h4>
+        <div className="row justify-content-center mt-5 mb-4 text-center">
+          <h4>Relatório de Entradas e Saídas</h4>
+          <span>Selecione uma categoria e as datas para exibir o relatório</span>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-12 col-lg-6">
+        <div className="row justify-content-center align-items-center my-3">
+          <div className="col-12 col-lg-4">
             <label htmlFor="data" className="form-label" style={{ width: '100%' }}>
-              Selecione uma categoria e as datas para exibir o relatório
+              Categoria
               <select
                 name="categoria"
                 className="form-control form-select"
@@ -116,6 +117,44 @@ export default function Mercadorias() {
                 required
               />
             </label>
+          </div>
+          <div className="col-12 col-lg-2 text-center overflow-hidden">
+            <OverlayTrigger
+              placement="top"
+              overlay={(<Tooltip>Visualizar PDF</Tooltip>)}
+            >
+              <button
+                type="button"
+                className="btn btn-md btn-outline-secondary mt-3 mx-1"
+                onClick={() => TablePDF('visualizar', inputsForm.dataInicial, inputsForm.dataFinal, entradasESaidas)}
+              >
+                <i className="fa-solid fa-file-pdf fa-xl" />
+              </button>
+            </OverlayTrigger>
+            <OverlayTrigger
+              placement="top"
+              overlay={(<Tooltip>Salvar PDF</Tooltip>)}
+            >
+              <button
+                type="button"
+                className="btn btn-md btn-outline-secondary mt-3 mx-1"
+                onClick={() => TablePDF('salvar', inputsForm.dataInicial, inputsForm.dataFinal, entradasESaidas)}
+              >
+                <i className="fa-regular fa-floppy-disk fa-xl" />
+              </button>
+            </OverlayTrigger>
+            <OverlayTrigger
+              placement="top"
+              overlay={(<Tooltip>Imprimir PDF</Tooltip>)}
+            >
+              <button
+                type="button"
+                className="btn btn-md btn-outline-secondary mt-3 mx-1"
+                onClick={() => TablePDF('imprimir', inputsForm.dataInicial, inputsForm.dataFinal, entradasESaidas)}
+              >
+                <i className="fa-solid fa-print fa-xl" />
+              </button>
+            </OverlayTrigger>
           </div>
         </div>
         <ListaDeEntradasESaidas entradasESaidas={entradasESaidas} isLoading={isLoading} />
