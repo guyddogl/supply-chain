@@ -28,7 +28,7 @@ export default function saidaMercadoria() {
 
   const checkAvailability = (mercadoria) => {
     const availability = mercadorias.find((e) => Number(e.id) === Number(mercadoria));
-    console.log(availability);
+    return availability;
   };
 
   const handleFormInputs = (event) => {
