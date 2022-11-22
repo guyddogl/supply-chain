@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Fabricantes from './pages/Fabricantes';
 import Mercadorias from './pages/Mercadorias';
+import Relatorios from './pages/Relatorios';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" element={<ProtectedRoutes component={Home} />} />
       <Route path="/fabricantes" element={<ProtectedRoutes component={Fabricantes} />} />
       <Route path="/mercadorias" element={<ProtectedRoutes component={Mercadorias} />} />
+      <Route path="/relatorios" element={<ProtectedRoutes component={Relatorios} />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
