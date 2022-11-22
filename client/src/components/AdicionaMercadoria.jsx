@@ -18,7 +18,7 @@ export default function AdicionaMercadoria() {
 
   const INITIAL_STATE = {
     nome: '',
-    registro: '',
+    registro: gerarRegistro(16),
     criado_por: currentUser.id,
     atualizado_por: currentUser.id,
   };
