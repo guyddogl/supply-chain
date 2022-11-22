@@ -38,6 +38,9 @@ export default function NavBar() {
             <li className="nav-item mx-1">
               <Link className={`nav-link ${checkNavLinkActive('/mercadorias', location.pathname)}`} to="/mercadorias">Mercadorias</Link>
             </li>
+            <li className="nav-item mx-1">
+              <Link className={`nav-link ${checkNavLinkActive('/relatorios', location.pathname)}`} to="/relatorios">Relatórios</Link>
+            </li>
           </ul>
           <span className="navbar-text">
             Olá,
