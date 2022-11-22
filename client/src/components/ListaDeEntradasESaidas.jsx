@@ -32,13 +32,15 @@ export default function ListaDeEntradasESaidas(props) {
             Mercadoria
           </th>
           <th>
+            Categoria
+          </th>
+          <th>
             Local
           </th>
         </tr>
       </thead>
       <tbody className="table-group-divider">
-        {entradasESaidas.length >= 1 && entradasESaidas.map((e, index) => (
-          index < 10 && (
+        {entradasESaidas.length >= 1 && entradasESaidas.map((e) => (
           <tr key={e.data_hora} className={`${lineTableBg(e.tipo)}`}>
             <td>
               {formatDateTime(e.data_hora)}
@@ -50,10 +52,12 @@ export default function ListaDeEntradasESaidas(props) {
               {e.mercadoria}
             </td>
             <td>
+              {e.tipo}
+            </td>
+            <td>
               {e.local}
             </td>
           </tr>
-          )
         ))}
       </tbody>
     </table>
