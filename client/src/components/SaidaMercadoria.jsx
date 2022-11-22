@@ -78,7 +78,7 @@ export default function saidaMercadoria() {
         onClick={handleShow}
       >
         <i className="fa-solid fa-circle-minus me-2" />
-        Saída
+        Cadastrar Saída
       </button>
       <Modal
         show={show}

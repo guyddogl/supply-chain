@@ -70,7 +70,7 @@ export default function EntradaMercadoria() {
         onClick={handleShow}
       >
         <i className="fa-solid fa-circle-plus me-2" />
-        Entrada
+        Cadastrar Entrada
       </button>
       <Modal
         show={show}
