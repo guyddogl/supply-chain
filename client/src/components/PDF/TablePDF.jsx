@@ -25,7 +25,7 @@ export default function TablePDF(action, initialDate, dataFinal, dados) {
 
   const footer = (currentPage, pageCount) => {
     const page = {
-      text: `${currentPage}/${pageCount}`,
+      text: `${pageCount > 1 ? 'Páginas ' : 'Página '}${currentPage}/${pageCount}`,
       alignment: 'right',
       fontSize: 12,
       margin: [0, 15, 25, 45],
